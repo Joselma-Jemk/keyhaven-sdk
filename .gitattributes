@@ -1,0 +1,2 @@
+# Normalise line endings to LF (CI runs on Linux).
+* text=auto eol=lf
