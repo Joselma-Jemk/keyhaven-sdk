@@ -4,7 +4,8 @@
 
 **The open-source Python client for [Keyhaven](https://github.com/Joselma-Jemk) — OAuth & tool-calling for AI agents.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Joselma-Jemk/keyhaven-sdk/blob/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/keyhaven.svg)](https://pypi.org/project/keyhaven/)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 
 </div>
@@ -34,7 +35,7 @@ pip install keyhaven
 ```python
 from keyhaven import Keyhaven
 
-async with Keyhaven(base_url="https://your-keyhaven-host", api_key="kh_live_...") as kh:
+async with Keyhaven(base_url="https://your-keyhaven-host", api_key="<your-api-key>") as kh:
     # 1. Start an OAuth connection for one of your users
     auth_url = await kh.connect("gmail", owner_id="user_123")
     #    → the user visits auth_url and consents; Keyhaven stores encrypted credentials
