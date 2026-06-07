@@ -49,6 +49,9 @@ src = ["src", "tests"]
 [tool.ruff.lint]
 select = ["E", "W", "F", "I", "B", "C4", "UP", "N", "SIM", "RUF"]
 ignore = ["E501"]
+# Generated app stubs mirror external API field names (camelCase, etc.) — exclude
+# them from *linting* only. They are still formatted and type-checked (mypy strict).
+exclude = ["src/keyhaven/sdk/apps/**"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -56,3 +59,29 @@ quote-style = "double"
 [tool.mypy]
 python_version = "3.10"
 strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "respx>=0.21",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "langchain-core>=0.3", # for test_sdk_langchain
+]
+
+# Pin dev tools to versions already in the local uv cache (avoids slow downloads
+# in this environment). These are dev-only and never shipped with the package.
+[tool.uv]
+constraint-dependencies = [
+    "ruff==0.15.15",
+    "mypy==2.1.0",
+    "pytest==9.0.3",
+    "pytest-asyncio==1.4.0",
+    "respx==0.23.1",
+    "langchain-core==1.4.0",
+]
