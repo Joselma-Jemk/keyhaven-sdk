@@ -1,6 +1,6 @@
 [project]
 name = "keyhaven"
-version = "0.1.0"
+version = "0.0.1"
 description = "Open-source Python SDK + CLI client for Keyhaven — OAuth and tool-calling for AI agents."
 readme = "README.md"
 requires-python = ">=3.10"
